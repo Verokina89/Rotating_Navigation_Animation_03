@@ -50,6 +50,15 @@ body {
     font-family: 'Lato', sans-serif;
     font-style: normal;
     color: black;
+    background-color: #555;
+    width: 100%;
+}
+
+.bigContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    overflow: hidden;
 }
 
 .headerMain {
@@ -60,13 +69,18 @@ body {
     position: relative;
 }
 
-
-.logo {
+.menu {
     filter: invert(1);
     padding: 30px;
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
+    
+}
+
+main {
+    margin: 110px auto;
+
 }
 
 .contentTop {
@@ -76,9 +90,10 @@ body {
     line-height: 1.5; /*tamaño del interlineado*/
 }
 
+
+
 h1 {
-    margin-top: 0;
-    padding: 6px;
+    
     font-weight: bold;
     font-size: 30px;
 }
@@ -92,20 +107,50 @@ small {
 
 p {
     padding: 20px 0;
+    
 }
 
 img {
     width: 100%;
+    
 }
 
-.contentNav {
-    width: 30px;
-    height: 30px;
+/* .contentNav {
+
+} */
+
+.contentNav li  {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px;
     cursor: pointer;
-   
+}
+
+.contentNav li+li {
+    margin: 35px;
+}
+
+.contentNav li+li+li {
+    margin: 50px;
+}
+
+.contentNav svg {
+    filter: invert(1);
+    width: 20px;
+    height: 30px;
 }
 
 .contentNav a {
+   color: white;
     text-decoration: none;
 }
 
+.contentNav a:hover {
+    color: #ff7979;
+    transition: all 0.3;
+}
+
+.bigContainer.showmenuNav {
+    transform: rotate(-20deg);
+}
