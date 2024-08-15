@@ -65,7 +65,7 @@ body {
     flex-direction: column;
     background-color: white;
     overflow: hidden;
-    transition: transform 1s ease;
+    transition: transform 1s ease, margin 1s ease;
 }
 
 .bigContainer.showmenuNav {
@@ -175,7 +175,6 @@ img {
 
 .bigContainer.showmenuNav #close {
     display: block; /* Mostramos el botón de cerrar */
-    
 }
 
 /* Controlar la visibilidad del contentNav */
