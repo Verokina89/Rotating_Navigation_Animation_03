@@ -46,6 +46,12 @@ table {
 
 /*---CODE---*/
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Lato', sans-serif;
     font-style: normal;
@@ -59,7 +65,13 @@ body {
     flex-direction: column;
     background-color: white;
     overflow: hidden;
-    transition: transform 0.3s ease;
+    transition: transform 1s ease;
+}
+
+.bigContainer.showmenuNav {
+    transform: rotate(-20deg);
+    margin-top: -170px;
+    margin-left: 120px;
 }
 
 .headerMain {
@@ -82,15 +94,11 @@ body {
 }
 
 main {
-    /* margin: 110px auto; */
     margin-top: 120px; /*evita la superposicion con el headerMain*/
     padding: 0 50px;
 }
 
 .contentTop {
-    /* padding: 0 50px 0 50px;
-    width: 100vw;
-    height: 100vw;  estas 3 provocaban el error de pegarse a la derecha pq habia doble margin*/
     line-height: 1.5; /*tamaño del interlineado*/
 }
 
@@ -114,20 +122,30 @@ img {
     width: 100%;
 }
 
+.contentNav {
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    z-index: 100;
+    gap: 10px;
+}
+
 .contentNav li  {
     display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 20px;
+    margin-left: 10px;
     cursor: pointer;
+    transform: translateX(20%);
+    transition: all 2s ease;
 }
 
 .contentNav li+li {
-    margin: 35px;
+    margin-left: 20px;
+    transform: translateX(40%);
 }
 
 .contentNav li+li+li {
-    margin: 50px;
+    margin-left: 30px;
+    transform: translateX(60%);
 }
 
 .contentNav svg {
@@ -137,7 +155,7 @@ img {
 }
 
 .contentNav a {
-   color: white;
+    color: white;
     text-decoration: none;
 }
 
@@ -146,10 +164,25 @@ img {
     transition: all 0.3;
 }
 
-.bigContainer.showmenuNav {
-    transform: rotate(-20deg);
+#close {
+    display: none;  /* Ocultamos por defecto el botón de cerrar */
 }
 
-.contentNav .showmenuNav  {
-    transform: translateY(0); /* Mueve el nav a su posición original */
+/* Cuando el menú está activo y rotado */
+.bigContainer.showmenuNav #open {
+    display: none;
+}
+
+.bigContainer.showmenuNav #close {
+    display: block; /* Mostramos el botón de cerrar */
+    
+}
+
+/* Controlar la visibilidad del contentNav */
+.contentNav {
+    display: none;
+}
+
+.bigContainer.showmenuNav ~ .contentNav {
+    display: flex; /* Usamos flex para asegurar que el contenido interno esté bien alineado */
 }
