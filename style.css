@@ -59,6 +59,7 @@ body {
     flex-direction: column;
     background-color: white;
     overflow: hidden;
+    transition: transform 0.3s ease;
 }
 
 .headerMain {
@@ -66,34 +67,34 @@ body {
     border-radius: 0 0 100px;
     width: 100px;
     height: 100px;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /*asegura que este encima de los otros elementos*/
 }
 
 .menu {
     filter: invert(1);
     padding: 30px;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     cursor: pointer;
-    
 }
 
 main {
-    margin: 110px auto;
-
+    /* margin: 110px auto; */
+    margin-top: 120px; /*evita la superposicion con el headerMain*/
+    padding: 0 50px;
 }
 
 .contentTop {
-    padding: 0 50px 0 50px;
+    /* padding: 0 50px 0 50px;
     width: 100vw;
-    height: 100vw;
+    height: 100vw;  estas 3 provocaban el error de pegarse a la derecha pq habia doble margin*/
     line-height: 1.5; /*tamaño del interlineado*/
 }
 
-
-
 h1 {
-    
     font-weight: bold;
     font-size: 30px;
 }
@@ -107,17 +108,11 @@ small {
 
 p {
     padding: 20px 0;
-    
 }
 
 img {
     width: 100%;
-    
 }
-
-/* .contentNav {
-
-} */
 
 .contentNav li  {
     display: flex;
@@ -153,4 +148,8 @@ img {
 
 .bigContainer.showmenuNav {
     transform: rotate(-20deg);
+}
+
+.contentNav .showmenuNav  {
+    transform: translateY(0); /* Mueve el nav a su posición original */
 }
